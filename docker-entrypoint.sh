@@ -1,14 +1,14 @@
 #!/bin/sh
 set -e
 
-litecoind_setup.sh
+rubycoind_setup.sh
 
 echo "################################################"
 echo "# Configuration used: /litecoin/litecoin.conf  #"
 echo "################################################"
 echo ""
-cat /litecoin/litecoin.conf
+cat /rubycoin/rubycoin.conf
 echo ""
 echo "################################################"
 
-exec litecoind -datadir=/litecoin -conf=/litecoin/litecoin.conf -printtoconsole "$@"
+exec rubycoind -daemon -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf -printtoconsole "$@"
