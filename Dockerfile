@@ -31,7 +31,7 @@ RUN apt-get remove --purge -y \
 
 VOLUME ["/rubycoin"]
 
-EXPOSE 5317 5318
+EXPOSE 5937 5938
 
 COPY ["bin", "/usr/local/bin/"]
 COPY ["docker-entrypoint.sh", "/usr/local/bin/"]
