@@ -11,4 +11,4 @@ cat /rubycoin/rubycoin.conf
 echo ""
 echo "################################################"
 
-exec rubycoind -daemon -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf -printtoconsole "$@"
+exec rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf -printtoconsole "$@"
