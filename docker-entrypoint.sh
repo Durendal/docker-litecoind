@@ -4,7 +4,7 @@ set -e
 rubycoind_setup.sh
 
 echo "################################################"
-echo "# Configuration used: /litecoin/litecoin.conf  #"
+echo "# Configuration used: /rubycoin/rubycoin.conf  #"
 echo "################################################"
 echo ""
 cat /rubycoin/rubycoin.conf
