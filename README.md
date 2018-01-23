@@ -3,6 +3,29 @@
 
 Docker image that runs the Rubycoin rubycoind node in a container for easy deployment.
 
+## Quickstart
+
+To run:
+
+    $ docker run -d -p 5937:5937 durendalz/docker-rubycoind:latest
+
+To Find the container ID:
+
+    $ docker container ls
+
+Connect to the instance:
+
+    $ docker exec -it [container id] /bin/bash
+
+Once connected to verify the daemon is synching run:
+
+    # rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
+    
+OR you can directly query rubycoind with:
+
+    $ docker exec -it [container id] rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
+
+
 ## Setup
 In order to setup a Rubycoin node with the default options perform the following steps:
 
