@@ -1,5 +1,8 @@
-# Rubycoind for Docker
+[![Docker Stars](https://img.shields.io/docker/stars/durendalz/docker-rubycoind.svg)](https://hub.docker.com/r/durendalz/docker-rubycoind/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/durendalz/docker-rubycoind.svg)](https://hub.docker.com/r/durendalz/docker-rubycoind/)
+[![ImageLayers](https://images.microbadger.com/badges/image/durendalz/docker-rubycoind.svg)](https://microbadger.com/images/durendalz/docker-rubycoind)
 
+# Rubycoind for Docker
 
 Docker image that runs the Rubycoin rubycoind node in a container for easy deployment.
 
