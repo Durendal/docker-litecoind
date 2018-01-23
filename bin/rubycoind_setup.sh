@@ -37,5 +37,3 @@ echo "addnode=138.197.135.225:5937" >> "/rubycoin/rubycoin.conf"
 echo "addnode=73.120.64.249:5937" >> "/rubycoin/rubycoin.conf"
 echo "addnode=14.202.55.175:5937" >> "/rubycoin/rubycoin.conf"
 echo "addnode=1.34.180.245:5937" >> "/rubycoin/rubycoin.conf"
-
-#fi;
