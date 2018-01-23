@@ -5,9 +5,13 @@ Docker image that runs the Rubycoin rubycoind node in a container for easy deplo
 
 ## Quickstart
 
+Create a basic volume to store the data directory:
+
+        $ docker volume create --name=rubycoind-data
+
 To run:
 
-        $ docker run -d -p 5937:5937 durendalz/docker-rubycoind:latest
+        $ docker run -d -v rubycoind-data:/rubycoin durendalz/docker-rubycoind:latest
 
 To Find the container ID:
 
