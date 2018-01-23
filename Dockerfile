@@ -10,10 +10,10 @@ libssl-dev \
 libdb++-dev \
 libboost-all-dev \
 make \
-dirmngr
+dirmngr \
+ca-certificates
 
 RUN \
-git config --global http.sslVerify false && \
 git clone https://github.com/rubycoinorg/rubycoin.git && \
 cd rubycoin/src && \
 make -f makefile.unix && \
