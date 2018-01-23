@@ -16,7 +16,9 @@ RUN \
 git clone https://github.com/rubycoinorg/rubycoin.git && \
 cd rubycoin/src && \
 make -f makefile.unix && \
-mv rubycoind /usr/local/bin/
+mv rubycoind /usr/local/bin/ && \
+cd ../.. && \
+rm -rf rubycoin
 
 VOLUME ["/rubycoin"]
 
