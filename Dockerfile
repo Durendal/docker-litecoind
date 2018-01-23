@@ -10,7 +10,6 @@ libssl-dev \
 libdb++-dev \
 libboost-all-dev \
 make \
-dirmngr \
 ca-certificates
 
 RUN \
