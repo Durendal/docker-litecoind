@@ -11,19 +11,19 @@ To run:
 
 To Find the container ID:
 
-    $ docker container ls
+        $ docker container ls
 
 Connect to the instance:
 
-    $ docker exec -it [container id] /bin/bash
+        $ docker exec -it [container id] /bin/bash
 
 Once connected to verify the daemon is synching run:
 
-    # rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
-    
+        # rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
+
 OR you can directly query rubycoind with:
 
-    $ docker exec -it [container id] rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
+        $ docker exec -it [container id] rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
 
 
 ## Setup
