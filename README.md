@@ -7,7 +7,7 @@ Docker image that runs the Rubycoin rubycoind node in a container for easy deplo
 
 To run:
 
-    $ docker run -d -p 5937:5937 durendalz/docker-rubycoind:latest
+        $ docker run -d -p 5937:5937 durendalz/docker-rubycoind:latest
 
 To Find the container ID:
 
