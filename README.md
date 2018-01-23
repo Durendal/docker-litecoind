@@ -3,8 +3,7 @@
 
 Docker image that runs the Rubycoin rubycoind node in a container for easy deployment.
 
-## Quick Start
-
+## Setup
 In order to setup a Rubycoin node with the default options (no wallet and no RPC server) perform the following steps:
 
 1. Create a volume for the rubycoin data.
@@ -22,12 +21,12 @@ The volume can then be reused to restore the state of the service in case the co
 docker run -d \
     --name rubycoind-node \
     -v rubycoind-data:/rubycoin \
-    -p 9333:9333 \
+    -p 5397:5397 \
     --restart unless-stopped \
-    salessandri/docker-rubycoind
+    durendalz/docker-rubycoind
 ```
 
-This will create a container named `rubycoind-node` which gets the host's port 9333 forwarded to it.
+This will create a container named `rubycoind-node` which gets the host's port 5937 forwarded to it.
 Also this container will restart in the event it crashes or the host is restarted.
 
 3. Inspect the output of the container by using docker logs
@@ -47,7 +46,6 @@ By default the only option it overrides is the wallet option, making it disabled
 
 The following are the environmental variables that can be used to change that default behavior:
 
-- `ENABLE_WALLET`: If set, the configuration will not disable the wallet and the `rubycoind` daemon will create one.
 - `MAX_CONNECTIONS`: When set (should be an integer), it overrides the max connections value.
 - `RPC_SERVER`: If set, it enables the JSON RPC server on port 9332. If no user is given, the user will be set to `rubycoinrpc` and if no password is given a random one will be generated.
 The configuration file is the first thing printed by the container and the password can be read from the logs.
@@ -61,7 +59,7 @@ Example:
 docker run -d \
     --name rubycoind-node \
     -v rubycoind-data:/rubycoin \
-    -p 9333:9333 \
+    -p 5397:5397 \
     --restart unless-stopped \
     -e ENABLE_WALLET=1 \
     -e MAX_CONNECTIONS=25 \
@@ -79,7 +77,7 @@ docker run -d \
     --name rubycoind-node \
     -v rubycoind-data:/rubycoin \
     -v /etc/rubycoin.conf:/rubycoin/rubycoin.conf \
-    -p 9333:9333 \
+    -p 5397:5397 \
     --restart unless-stopped \
     salessandri/docker-rubycoind
 ```
@@ -96,7 +94,7 @@ Then, when creating the container in the `docker run`, instead of naming a volum
 docker run -d \
     --name rubycoind-node
     -v /var/rubycoind-data:/rubycoin \
-    -p 9333:9333 \
+    -p 5937:5937 \
     --restart unless-stopped \
     salessandri/docker-rubycoind
 ```
@@ -111,7 +109,7 @@ Example:
 docker run -d \
     --name rubycoind-node
     -v rubycoind-data:/rubycoin \
-    -p 9333:9333 \
+    -p 5937:5937 \
     --restart unless-stopped \
     salessandri/docker-rubycoind \
     -timeout=10000 -proxy=10.0.0.5:3128
