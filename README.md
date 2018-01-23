@@ -4,7 +4,7 @@
 Docker image that runs the Rubycoin rubycoind node in a container for easy deployment.
 
 ## Setup
-In order to setup a Rubycoin node with the default options (no wallet and no RPC server) perform the following steps:
+In order to setup a Rubycoin node with the default options perform the following steps:
 
 1. Create a volume for the rubycoin data.
 
@@ -42,7 +42,6 @@ There are 4 different ways to customize the configuration of the `rubycoind` dae
 ### Environment Variables to the Config Generator
 
 If there is no `rubycoin.conf` file in the work directory (`/rubycoin`), the container creates a basic configuration file based on environmental variables.
-By default the only option it overrides is the wallet option, making it disabled.
 
 The following are the environmental variables that can be used to change that default behavior:
 
@@ -61,9 +60,8 @@ docker run -d \
     -v rubycoind-data:/rubycoin \
     -p 5397:5397 \
     --restart unless-stopped \
-    -e ENABLE_WALLET=1 \
     -e MAX_CONNECTIONS=25 \
-    salessandri/docker-rubycoind
+    durendalz/docker-rubycoind
 ```
 
 ### Mounting a `rubycoin.conf` file on `/rubycoin/rubycoin.conf`
@@ -79,7 +77,7 @@ docker run -d \
     -v /etc/rubycoin.conf:/rubycoin/rubycoin.conf \
     -p 5397:5397 \
     --restart unless-stopped \
-    salessandri/docker-rubycoind
+    durendalz/docker-rubycoind
 ```
 
 ### Have a `rubycoin.conf` in the rubycoin data directory
@@ -96,7 +94,7 @@ docker run -d \
     -v /var/rubycoind-data:/rubycoin \
     -p 5937:5937 \
     --restart unless-stopped \
-    salessandri/docker-rubycoind
+    durendalz/docker-rubycoind
 ```
 
 ### Extra arguments to docker run
@@ -111,7 +109,7 @@ docker run -d \
     -v rubycoind-data:/rubycoin \
     -p 5937:5937 \
     --restart unless-stopped \
-    salessandri/docker-rubycoind \
+    durendalz/docker-rubycoind \
     -timeout=10000 -proxy=10.0.0.5:3128
 ```
 
