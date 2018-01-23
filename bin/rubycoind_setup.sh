@@ -13,15 +13,10 @@ if [ -e "/rubycoin/rubycoin.conf" ]; then
     exit 0
 fi
 
-if [ -z ${ENABLE_WALLET:+x} ]; then
-    echo "disablewallet=0" >> "/rubycoin/rubycoin.conf"
-fi
-
 if [ ! -z ${MAX_CONNECTIONS:+x} ]; then
     echo "maxconnections=${MAX_CONNECTIONS}" >> "/rubycoin/rubycoin.conf"
 fi
 
-#if [ ! -z ${RPC_SERVER:+x} ]; then
 RPC_USER=${RPC_USER:-rubycoinrpc}
 RPC_PASSWORD=${RPC_PASSWORD:-$(dd if=/dev/urandom bs=20 count=1 2>/dev/null | base64)}
 
