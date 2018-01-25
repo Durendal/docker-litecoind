@@ -14,7 +14,9 @@ Create a basic volume to store the data directory:
 
 To run:
 
-        $ docker run -d -v rubycoind-data:/rubycoin durendalz/docker-rubycoind:latest
+        $ docker run -d \
+        -v rubycoind-data:/rubycoin \
+        durendalz/docker-rubycoind:latest
 
 To Find the container ID:
 
@@ -26,18 +28,24 @@ Connect to the instance:
 
 Once connected to verify the daemon is synching run:
 
-        # rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
+        # rubycoind \
+        -datadir=/rubycoin \
+        -conf=/rubycoin/rubycoin.conf \
+        getinfo
 
 OR you can directly query rubycoind with:
 
-        $ docker exec -it [container id] rubycoind -datadir=/rubycoin -conf=/rubycoin/rubycoin.conf getinfo
-
+        $ docker exec \
+        -it [container id] \
+        rubycoind \
+        -datadir=/rubycoin \
+        -conf=/rubycoin/rubycoin.conf \
+        getinfo
 
 ## Setup
 In order to setup a Rubycoin node with the default options perform the following steps:
 
 1. Create a volume for the rubycoin data.
-
 
         $ docker volume create --name=rubycoind-data
 
@@ -45,7 +53,6 @@ All the data the rubycoind service needs to work will be stored in the volume.
 The volume can then be reused to restore the state of the service in case the container needs to be recreated (in case of a host restart or when upgrading the version).
 
 2. Create and run a container with the `docker-rubycoind` image.
-
 
         $ docker run -d \
         --name rubycoind-node \
@@ -58,7 +65,6 @@ This will create a container named `rubycoind-node` which gets the host's port 5
 Also this container will restart in the event it crashes or the host is restarted.
 
 3. Inspect the output of the container by using docker logs
-
 
         $ docker logs -f rubycoind-node
 
@@ -114,7 +120,7 @@ Just create a directory in the host machine (e.g. `/var/rubycoind-data`) and pla
 Then, when creating the container in the `docker run`, instead of naming a volume to mount use the directory.
 
         $ docker run -d \
-        --name rubycoind-node
+        --name rubycoind-node \
         -v /var/rubycoind-data:/rubycoin \
         -p 5937:5937 \
         --restart unless-stopped \
@@ -128,7 +134,7 @@ This can be used to change the behavior of the `rubycoind` service.
 Example:
 
         $ docker run -d \
-        --name rubycoind-node
+        --name rubycoind-node \
         -v rubycoind-data:/rubycoin \
         -p 5937:5937 \
         --restart unless-stopped \
