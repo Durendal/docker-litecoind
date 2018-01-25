@@ -27,8 +27,7 @@ RUN apt-get remove --purge -y \
   libssl-dev \
   libdb++-dev \
   libboost-all-dev \
-  make \
-  ca-certificates
+  make
 
 VOLUME ["/rubycoin"]
 
