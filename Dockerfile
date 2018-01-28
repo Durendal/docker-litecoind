@@ -1,6 +1,19 @@
 FROM alpine
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+
 LABEL maintainer "Brian Hewitt <durendal@durendals-domain.com>"
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="docker-rubycoind" \
+      org.label-schema.description="rubycoind node" \
+      org.label-schema.url="https://github.com/Durendal/docker-rubycoind" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/Durendal/docker-rubycoind" \
+      org.label-schema.vendor="durendalz" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
 
 ENV BOOST_LIB_SUFFIX=-mt
 
