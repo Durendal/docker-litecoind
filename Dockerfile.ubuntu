@@ -1,31 +1,30 @@
-FROM alpine
+FROM ubuntu:16.04
 
 LABEL maintainer "Brian Hewitt <durendal@durendals-domain.com>"
 
-ENV BOOST_LIB_SUFFIX=-mt
-
-RUN apk --no-cache --virtual build-dependencies add autoconf \
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
   git \
-  automake \
-  build-base \
-  libressl \
-  libressl-dev \
-  libtool \
-  protobuf-dev \
-  gnupg \
-  file \
-  zeromq-dev && \
-  apk --no-cache add boost \
-  boost-dev \
-  db-dev \
-  libevent-dev && \
+  build-essential \
+  libssl-dev \
+  libdb++-dev \
+  libboost-all-dev \
+  make \
+  ca-certificates && \
   git clone https://github.com/rubycoinorg/rubycoin.git && \
   cd rubycoin/src && \
   make -f makefile.unix && \
   mv rubycoind /usr/local/bin/ && \
   cd ../.. && \
   rm -rf rubycoin && \
-  apk del --purge build-dependencies
+  apt-get remove --purge -y \
+  git \
+  build-essential \
+  ca-certificates \
+  libssl-dev \
+  libdb++-dev \
+  libboost-all-dev \
+  make
 
 VOLUME ["/rubycoin"]
 
